@@ -1,4 +1,4 @@
-import React, { useState  } from "react";
+import React, { useState  , TouchEvent } from "react";
 import styled from "styled-components";
 import logo from  "/image/RS_logo.png";
 import { IServisEvolution } from "../types/ServiceEvolution";
@@ -86,8 +86,8 @@ export default function CostomersPage(){
                         key = {index}
                         onClick={() => handleRate(item)}
                         style={{
-                            backgroundColor: selectedRate === item ? "green" : "#fff",
-                            color: selectedRate === item ? "#fff" : "#000", // Optional: Change text color for better visibility
+                            backgroundColor: selectedRate === item ? "red" : "#fff",
+                            color: selectedRate === item ? "#fff" : "#000",
                         }}
                         >{item}</p>
                     ))}
@@ -95,11 +95,10 @@ export default function CostomersPage(){
             </Couple>
 
             <Comment placeholder="დატოვეთ თქვენი კომენტარი..."
-            onChange={(e) => setEvaluation(event => ({ ...event, comments: e.target.value }))}
-            
+            onChange={(e) => setEvaluation(event => ({ ...event, comments: e.target.value }))} 
             />
 
-            <button type="button" onClick={handleSubmit}>გაგზავნა</button>
+            <button type="button" onClick={handleSubmit} onTouchStart={handleSubmit}>გაგზავნა</button>
         </Cont>
         </>
     )

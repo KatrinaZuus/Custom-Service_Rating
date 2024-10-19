@@ -5,6 +5,36 @@
       "servicePlace": "გეზი 'თბილისი2'",
       "evaluation": "3",
       "comments": "jj"
+    },
+    {
+      "id": "a2f5",
+      "servicePlace": "",
+      "evaluation": "2",
+      "comments": ""
+    },
+    {
+      "id": "6c85",
+      "servicePlace": "",
+      "evaluation": "3",
+      "comments": ""
+    },
+    {
+      "id": "3337",
+      "servicePlace": "",
+      "evaluation": "",
+      "comments": ""
+    },
+    {
+      "id": "eee0",
+      "servicePlace": "",
+      "evaluation": "5",
+      "comments": ""
+    },
+    {
+      "id": "5502",
+      "servicePlace": "",
+      "evaluation": "2",
+      "comments": ""
     }
   ]
 }

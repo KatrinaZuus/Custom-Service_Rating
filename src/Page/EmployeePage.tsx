@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import data from "../data.json";
 import logo from "/image/RS_logo.png";
-import * as XLSX from 'xlsx';
+// import * as XLSX from 'xlsx';
 import {saveAs} from "file-saver";
 import { IServisEvolution } from "../types/ServiceEvolution";
 
@@ -9,15 +9,15 @@ export default function EmployeePage(){
 const evaluationForAdmin = data.service
 
 const downloadExcel = () => {
-    const worksheet = XLSX.utils.json_to_sheet(evaluationForAdmin);
-    const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, 'Services');
+    // const worksheet = XLSX.utils.json_to_sheet(evaluationForAdmin);
+    // const workbook = XLSX.utils.book_new();
+    // XLSX.utils.book_append_sheet(workbook, worksheet, 'Services');
     
     // Create a binary string for the workbook
-    const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
-    const dataBlob = new Blob([excelBuffer], { type: 'application/octet-stream' });
+    // const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+    // const dataBlob = new Blob([excelBuffer], { type: 'application/octet-stream' });
     
-    saveAs(dataBlob, 'services.xlsx');
+    saveAs(/*dataBlob,*/ 'services.xlsx');
   };
     return(
         <>
