@@ -1,24 +1,43 @@
 import styled from "styled-components";
-import data from "../data.json";
 import logo from "/image/RS_logo.png";
-// import * as XLSX from 'xlsx';
+import * as XLSX from 'xlsx';
 import {saveAs} from "file-saver";
-import { IServisEvolution } from "../types/ServiceEvolution";
+import { TServisEvolution } from "../types/ServiceEvolution"
+import { useEffect, useState } from "react";
 
 export default function EmployeePage(){
-const evaluationForAdmin = data.service
+const [evaluationForAdmin, setEvaluationForAdmin] = useState<TServisEvolution[]>([])
 
 const downloadExcel = () => {
-    // const worksheet = XLSX.utils.json_to_sheet(evaluationForAdmin);
-    // const workbook = XLSX.utils.book_new();
-    // XLSX.utils.book_append_sheet(workbook, worksheet, 'Services');
+    const worksheet = XLSX.utils.json_to_sheet(evaluationForAdmin);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Services');
     
-    // Create a binary string for the workbook
-    // const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
-    // const dataBlob = new Blob([excelBuffer], { type: 'application/octet-stream' });
     
-    saveAs(/*dataBlob,*/ 'services.xlsx');
-  };
+    const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+    const dataBlob = new Blob([excelBuffer], { type: 'application/octet-stream' });
+    console.log(dataBlob)
+    
+    saveAs(dataBlob, 'services.xlsx');
+}
+
+    useEffect(()=>{
+        async function Resume() {
+            // event.preventDefault();
+            const response = await fetch(
+              "https://katerina-rating.onrender.com/rating"
+               
+            );
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();  
+            setEvaluationForAdmin(data)
+          } 
+          Resume()
+    }, [])
+ 
+
     return(
         <>
         <Cont>
@@ -27,7 +46,7 @@ const downloadExcel = () => {
         <Header>
             <img src={logo} alt="" />
             <p>მომხმარებელთა კმაყოფილების კვლევა</p>
-            <button onClick={downloadExcel}>
+            <button  onClick = {downloadExcel}>
                 მონაცემების ჩამოტვირთვა
             </button>
         </Header>
@@ -35,16 +54,18 @@ const downloadExcel = () => {
         <div style={{border: "solid 0.5px gray"}}>
             <Title>
                 <p className="N">N</p>
+                <p className="date">თარიღი</p>
                 <p className="servicePlace">მომსახურების გაწევის ადგილი</p>
                 <p className="rating">შეფასება</p>
                 <p className="comments">კომენტარი</p>
             </Title>
 
             <div>
-            {evaluationForAdmin?.map((item: IServisEvolution, index: number)=>(
+            {evaluationForAdmin?.map((item: any, index: number)=>(
                 <Grid 
                 key={index}>
                     <p className="N">{index+1}</p>
+                    <p className="date">{item.date}</p>
                     <p className="servicePlace">{item.servicePlace}</p>
                     <p className="rating">{item.evaluation}</p>
                     <p className="comments">{item.comments}</p>
@@ -65,7 +86,8 @@ const Cont = styled.div`
     .N,
     .servicePlace,
     .rating,
-    .comments{
+    .comments,
+    .date{
         width: 500px;
         padding: 5px 15px;
         border: solid 0.5px gray;
@@ -73,7 +95,10 @@ const Cont = styled.div`
         word-wrap: break-word;
     }
     .N{
-        width: 50px;
+        width: 55px;
+    }
+    .date{
+        width: 152px;
     }
 
 `

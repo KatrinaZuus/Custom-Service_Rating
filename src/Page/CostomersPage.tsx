@@ -15,7 +15,8 @@ export default function CostomersPage(){
     const [evaluation, setEvaluation] = useState<IServisEvolution>({
         servicePlace: "",
         evaluation: "",
-        comments: ""
+        comments: "",
+        dateR: "",
     })
     const [selectedRate, setSelectedRate] = useState<number | null>(null);
 
@@ -36,7 +37,7 @@ export default function CostomersPage(){
         async function handleSubmit(event: any) {
             event.preventDefault();
             const response = await fetch(
-              "http://localhost:3000/service", {
+              "https://katerina-rating.onrender.com/rating", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application-json",
@@ -52,7 +53,8 @@ export default function CostomersPage(){
             setEvaluation({
                 servicePlace: servicePlace[0],
                 evaluation: "",
-                comments: ""
+                comments: "",
+                date: ""
             });
             setSelectedRate(null); 
             SetIsdone(true)

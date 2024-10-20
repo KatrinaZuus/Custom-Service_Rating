@@ -1,76 +1,11 @@
 {
   "service": [
     {
-      "id": "dbc9",
+      "id": "7878",
       "servicePlace": "გეზი 'თბილისი2'",
       "evaluation": "3",
-      "comments": "jj"
-    },
-    {
-      "id": "a2f5",
-      "servicePlace": "",
-      "evaluation": "2",
-      "comments": ""
-    },
-    {
-      "id": "6c85",
-      "servicePlace": "",
-      "evaluation": "3",
-      "comments": ""
-    },
-    {
-      "id": "3337",
-      "servicePlace": "",
-      "evaluation": "",
-      "comments": ""
-    },
-    {
-      "id": "eee0",
-      "servicePlace": "",
-      "evaluation": "5",
-      "comments": ""
-    },
-    {
-      "id": "5502",
-      "servicePlace": "",
-      "evaluation": "2",
-      "comments": ""
-    },
-    {
-      "id": "2746",
-      "servicePlace": "გეზი 'თბილისი'",
-      "evaluation": "2",
-      "comments": "lll"
-    },
-    {
-      "id": "5832",
-      "servicePlace": "გეზი 'თბილისი2'",
-      "evaluation": "2",
-      "comments": "kkk"
-    },
-    {
-      "id": "75af",
-      "servicePlace": "გეზი 'თბილისი2'",
-      "evaluation": "5",
-      "comments": "katunaa"
-    },
-    {
-      "id": "17fe",
-      "servicePlace": "გეზი 'აეროპორტი'",
-      "evaluation": "5",
-      "comments": "zuus"
-    },
-    {
-      "id": "7b7c",
-      "servicePlace": "გეზი 'თბილისი2'",
-      "evaluation": "5",
-      "comments": "ჰჯჰჯჰჯჯ"
-    },
-    {
-      "id": "d454",
-      "servicePlace": "გეზი 'თბილისი2'",
-      "evaluation": "3",
-      "comments": "llojlkj;"
+      "comments": "lllnnn",
+      "dateR": ""
     }
   ]
 }
