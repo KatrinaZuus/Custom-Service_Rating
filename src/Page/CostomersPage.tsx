@@ -25,7 +25,6 @@ export default function CostomersPage(){
             ...prevEval,
             evaluation: rate.toString()
         }));
-        console.log(rate);
     }
         
           const handleServicePlaceChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -34,30 +33,29 @@ export default function CostomersPage(){
                 servicePlace: event.target.value
             }));
         }
-        async function handleSubmit() {
-            // event.preventDefault();
-            // const response = await fetch(
-            //   "http://localhost:3000/service", {
-            //     method: "POST",
-            //     headers: {
-            //       "Content-Type": "application-json",
-            //     },
-            //     body: JSON.stringify(evaluation),
-            //   }
-            // );
-            // if (!response.ok) {
-            //     throw new Error(`HTTP error! status: ${response.status}`);
-            // }
-            // const data = await response.json();
-            // console.log(data)
-            // setEvaluation({
-            //     servicePlace: servicePlace[0],
-            //     evaluation: "",
-            //     comments: ""
-            // });
-            // setSelectedRate(null); 
+        async function handleSubmit(event: any) {
+            event.preventDefault();
+            const response = await fetch(
+              "http://localhost:3000/service", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application-json",
+                },
+                body: JSON.stringify(evaluation),
+              }
+            );
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            console.log(data)
+            setEvaluation({
+                servicePlace: servicePlace[0],
+                evaluation: "",
+                comments: ""
+            });
+            setSelectedRate(null); 
             SetIsdone(true)
-            console.log(isdone)
           } 
 
     return(
@@ -101,8 +99,7 @@ export default function CostomersPage(){
             <Comment placeholder="დატოვეთ თქვენი კომენტარი..."
             onChange={(e) => setEvaluation(event => ({ ...event, comments: e.target.value }))} 
             />
-            <p>{evaluation.comments}</p>
-            <button type="button" onClick={handleSubmit} onTouchStart={handleSubmit}>გაგზავნა</button>
+            <button type="button" onClick={handleSubmit}>გაგზავნა</button>
         </Cont>
         ):
         (
@@ -138,7 +135,7 @@ const RS = styled.div`
     display: flex;
     align-items: center;
     gap: 5px;
-    margin-top: 50px
+    margin-top: 50px;
 `
 
 const Cont = styled.div`
@@ -183,6 +180,8 @@ const Couple = styled.form`
     select{
         padding: 10px;
         border-radius: 8px;
+        color: grey;
+        font-size: 18px;
     }
     label{
         margin-left: 8px
