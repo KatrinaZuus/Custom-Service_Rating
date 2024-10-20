@@ -58,6 +58,7 @@ export default function CostomersPage(){
             });
             setSelectedRate(null); 
             SetIsdone(true)
+            console.log(isdone)
           } 
 
     return(
