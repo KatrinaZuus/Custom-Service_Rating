@@ -34,28 +34,28 @@ export default function CostomersPage(){
                 servicePlace: event.target.value
             }));
         }
-        async function handleSubmit(event: any) {
-            event.preventDefault();
-            const response = await fetch(
-              "http://localhost:3000/service", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application-json",
-                },
-                body: JSON.stringify(evaluation),
-              }
-            );
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            const data = await response.json();
-            console.log(data)
-            setEvaluation({
-                servicePlace: servicePlace[0],
-                evaluation: "",
-                comments: ""
-            });
-            setSelectedRate(null); 
+        async function handleSubmit() {
+            // event.preventDefault();
+            // const response = await fetch(
+            //   "http://localhost:3000/service", {
+            //     method: "POST",
+            //     headers: {
+            //       "Content-Type": "application-json",
+            //     },
+            //     body: JSON.stringify(evaluation),
+            //   }
+            // );
+            // if (!response.ok) {
+            //     throw new Error(`HTTP error! status: ${response.status}`);
+            // }
+            // const data = await response.json();
+            // console.log(data)
+            // setEvaluation({
+            //     servicePlace: servicePlace[0],
+            //     evaluation: "",
+            //     comments: ""
+            // });
+            // setSelectedRate(null); 
             SetIsdone(true)
             console.log(isdone)
           } 
@@ -90,7 +90,7 @@ export default function CostomersPage(){
                         key = {index}
                         onClick={() => handleRate(item)}
                         style={{
-                            backgroundColor: selectedRate === item ? "red" : "#fff",
+                            backgroundColor: selectedRate === item ? "green" : "#fff",
                             color: selectedRate === item ? "#fff" : "#000",
                         }}
                         >{item}</p>
@@ -101,7 +101,7 @@ export default function CostomersPage(){
             <Comment placeholder="დატოვეთ თქვენი კომენტარი..."
             onChange={(e) => setEvaluation(event => ({ ...event, comments: e.target.value }))} 
             />
-            <p>{isdone}</p>
+            <p>{evaluation.comments}</p>
             <button type="button" onClick={handleSubmit} onTouchStart={handleSubmit}>გაგზავნა</button>
         </Cont>
         ):

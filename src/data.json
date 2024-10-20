@@ -41,6 +41,24 @@
       "servicePlace": "გეზი 'თბილისი'",
       "evaluation": "2",
       "comments": "lll"
+    },
+    {
+      "id": "5832",
+      "servicePlace": "გეზი 'თბილისი2'",
+      "evaluation": "2",
+      "comments": "kkk"
+    },
+    {
+      "id": "75af",
+      "servicePlace": "გეზი 'თბილისი2'",
+      "evaluation": "5",
+      "comments": "katunaa"
+    },
+    {
+      "id": "17fe",
+      "servicePlace": "გეზი 'აეროპორტი'",
+      "evaluation": "5",
+      "comments": "zuus"
     }
   ]
 }
