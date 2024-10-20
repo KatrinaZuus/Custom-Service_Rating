@@ -16,7 +16,7 @@ export default function CostomersPage(){
         servicePlace: "",
         evaluation: "",
         comments: "",
-        dateR: "",
+        date: "",
     })
     const [selectedRate, setSelectedRate] = useState<number | null>(null);
 
