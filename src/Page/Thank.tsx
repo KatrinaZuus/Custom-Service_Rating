@@ -5,7 +5,7 @@ import done from "/image/done-icon.png"
 export default function Thank(){
     return(
         <>
-        <Cont>
+        <Cont2>
             
             <img src={done} alt="" />
             <p>მადლობა, თქვენი შეფასება დაფიქსირებულია</p>
@@ -14,12 +14,12 @@ export default function Thank(){
             <img style={{width: "20px", height: "20px"}} src={logo} alt="" />
             <p>RS.GE - ურთიერთობა მარტივია</p>
             </RS> 
-        </Cont>
+        </Cont2>
         </>
     )
 }
 
-const Cont = styled.div`
+const Cont2 = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;

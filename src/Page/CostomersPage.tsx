@@ -1,14 +1,16 @@
-import React, { useState  , TouchEvent } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import logo from  "/image/RS_logo.png";
 import { IServisEvolution } from "../types/ServiceEvolution";
-import { useNavigate } from "react-router-dom";
+import done from "/image/done-icon.png"
+// import { useNavigate } from "react-router-dom";
 
 export default function CostomersPage(){
     
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const servicePlace = ["აირჩიეთ", "გეზი 'თბილისი'", "გეზი 'თბილისი2'", "გეზი 'აეროპორტი'"];
     const [rating] = useState<number[]>([1, 2, 3, 4, 5]);
+    const [isdone, SetIsdone] = useState<boolean>(false)
 
     const [evaluation, setEvaluation] = useState<IServisEvolution>({
         servicePlace: "",
@@ -54,12 +56,14 @@ export default function CostomersPage(){
                 comments: ""
             });
             setSelectedRate(null); 
-            navigate("/thank")
+            SetIsdone(true)
+            console.log(isdone)
           } 
 
     return(
         <>
-        <Cont>
+        {!isdone ? (
+            <Cont>
             <Header>
                 <img src={logo} alt="" />
                 <p>თქვენი აზრი<br/><span>ჩვენთვის მნიშვნელოვანია</span></p>
@@ -97,12 +101,45 @@ export default function CostomersPage(){
             <Comment placeholder="დატოვეთ თქვენი კომენტარი..."
             onChange={(e) => setEvaluation(event => ({ ...event, comments: e.target.value }))} 
             />
-
+            <p>{isdone}</p>
             <button type="button" onClick={handleSubmit} onTouchStart={handleSubmit}>გაგზავნა</button>
         </Cont>
+        ):
+        (
+            <Cont2>
+            
+            <img src={done} alt="" />
+            <p>მადლობა, თქვენი შეფასება დაფიქსირებულია</p>
+           
+            <RS>
+            <img style={{width: "20px", height: "20px"}} src={logo} alt="" />
+            <p>RS.GE - ურთიერთობა მარტივია</p>
+            </RS> 
+        </Cont2> 
+        )}
         </>
     )
 }
+
+const Cont2 = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+    padding: 80px 10px;
+    img{
+        width: 50px;
+        height: 50px;
+    }
+`
+const RS = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 50px
+`
 
 const Cont = styled.div`
     button{
