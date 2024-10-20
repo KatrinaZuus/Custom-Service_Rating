@@ -23,7 +23,6 @@ const downloadExcel = () => {
 
     useEffect(()=>{
         async function Resume() {
-            // event.preventDefault();
             const response = await fetch(
               "https://katerina-rating.onrender.com/rating"
                
@@ -36,8 +35,8 @@ const downloadExcel = () => {
           } 
           Resume()
     }, [])
- 
 
+    
     return(
         <>
         <Cont>
@@ -70,7 +69,9 @@ const downloadExcel = () => {
                     <p className="rating">{item.evaluation}</p>
                     <p className="comments">{item.comments}</p>
                 </Grid>
+                
             ))}
+            
             </div>
         </div>
 
@@ -87,7 +88,8 @@ const Cont = styled.div`
     .servicePlace,
     .rating,
     .comments,
-    .date{
+    .date,
+    .button{
         width: 500px;
         padding: 5px 15px;
         border: solid 0.5px gray;
@@ -101,6 +103,10 @@ const Cont = styled.div`
         width: 152px;
     }
 
+    .button{
+        width: 50px;
+        border: none;
+    }
 `
 
 const Header = styled.div`
@@ -144,7 +150,6 @@ const Title = styled.div`
 
 const Grid = styled.div`
     display: flex;
-    
     & > p{
         background-color: #cedeee;
         padding: 5px 15px;

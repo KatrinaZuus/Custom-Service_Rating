@@ -7,13 +7,8 @@ import EmployeePage from "./Page/EmployeePage"
 import PageProvider from "./Context/PageProvider"
 
 const router = createBrowserRouter([
-  {path: "/", element: <CustomersPage/>,
-    children: [
-      {path: "/resume", element: <EmployeePage/>}
-    ]
-
-  },
-  
+  {path: "/", element: <CustomersPage/>},
+  {path: "/resume", element: <EmployeePage/>}
 ])
 
 createRoot(document.getElementById('root')!).render(

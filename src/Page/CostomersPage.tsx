@@ -109,7 +109,7 @@ export default function CostomersPage(){
             <Cont2>
             
             <img src={done} alt="" />
-            <p>მადლობა, თქვენი შეფასება დაფიქსირებულია</p>
+            <p>მადლობა, თქვენი შეფასება მიღებულია</p>
            
             <RS>
             <img style={{width: "20px", height: "20px"}} src={logo} alt="" />
