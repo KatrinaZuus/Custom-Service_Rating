@@ -141,7 +141,7 @@ const RS = styled.div`
 const Cont = styled.div`
     button{
         margin-top: 20px;
-        padding: 3px 8px 6px;
+        padding: 5px 15px 8px;
         border-radius: 8px;
         background-color: #71be71;
         border: none;
@@ -151,6 +151,7 @@ const Cont = styled.div`
         text-shadow: 0 0 20px #757575;
         touch-action: manipulation;
         cursor: pointer;
+        color: #fff;
         :hover{
             background-color: #61e661;
         }
@@ -180,7 +181,7 @@ const Couple = styled.form`
     select{
         padding: 10px;
         border-radius: 8px;
-        color: grey;
+        color: #1e1d1d;
         font-size: 18px;
     }
     label{
